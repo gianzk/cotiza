@@ -1,0 +1,31 @@
+.Container{
+    background: #F7F8FC;
+    height: 100vh;
+    &-List{
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+        color: #494F66;
+        list-style: none;
+        margin:20% 10% 0% 30%;
+        &-Item{
+            display: flex;
+            &-Id{
+                color:#C5CBE0;
+                background-color: #45597e;
+                height: 24px;
+                width: 24px;
+                border-radius: 50%;
+                border-color:#A3ABCC;
+                padding: 0% 3%;
+            }
+            &-Name{
+                margin-left: 20px;
+            }
+            
+        }
+    }
+}

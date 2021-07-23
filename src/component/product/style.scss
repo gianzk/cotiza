@@ -1,0 +1,82 @@
+.Colum{
+    display: flex;
+    flex-direction: column;
+}
+
+.Detail{
+    display: flex;
+    border: 3px solid #F0F2FA;
+    box-sizing: border-box;
+    border-radius: 12px;
+    justify-content: space-around;
+    align-items: center;
+    &-information{
+        display: flex;           
+        flex-direction: column;
+        flex:1.5;
+        margin-left: 10%;
+        &>h3{
+            font-family: Roboto;
+            font-size: 12px;
+            line-height: 20px;
+            color: #A3ABCC;
+            margin-bottom: 0px;
+        }
+        &>p{
+            font-family: Lato;
+            font-size: 20px;
+            line-height: 28px;       
+            display: flex;
+            align-items: center;
+            color: #494F66;
+            margin-top: 0px;
+        }
+    }
+    &-avatar{
+        display: flex;
+        flex:1.5;
+        justify-content: flex-end;
+    }
+}
+
+.ChangeMont{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
+    margin-bottom: 12%;
+    &-Rank{
+
+        &>h2{
+            font-family: Lato;
+            font-size: 16px;
+            line-height: 24px;
+            color: #494F66;
+        }
+        &-Values{
+            display: flex;
+            justify-content: space-around;
+            &>span{
+                font-family: Lato;
+                font-size: 12px;
+                line-height: 16px;
+                color: #676F8F;
+            }
+        }
+    }
+    &-Detail{
+        display: flex;
+        border: 1px solid #C5CBE0;
+        box-sizing: border-box;
+        border-radius: 8px;
+        align-items:center;
+        padding: 3%;
+        &>span{
+            margin: 0% 4%;
+        }
+    }
+}
+.Separator{
+
+    border-bottom:1px solid #E4E8F7;
+    margin-bottom: 15%;
+}

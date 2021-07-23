@@ -1,0 +1,52 @@
+.Confirmation{
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: auto 15% auto 0%;
+    &-title{
+        font-family: Lato;
+        font-size: 36px;
+        color: #EF3340;
+        margin-bottom: 0px;
+    }
+    &-message{
+        font-family: Lato;
+        font-size: 36px;
+        color:#494F66;
+        margin-top: 0px;
+    }
+    &-Detail{
+        &>span{
+            font-family: Roboto;
+            font-style: normal;
+            font-size: 16px;
+            color: #676F8F;
+            margin-right: 5%;
+        }
+        &>p{
+            font-family: Roboto;
+            font-style: normal;
+            font-size: 16px;
+            color: #A3ABCC;    
+        }
+    }
+    &-Button{
+        width: 256px;
+        height: 56px;
+        background: #EF3340;
+        border-radius: 8px;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        color: #FFFFFF;
+        outline: none;
+        border: none;
+        margin-top: 5%;
+        &:hover{
+          cursor:pointer;
+        }
+    }
+}

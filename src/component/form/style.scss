@@ -1,0 +1,85 @@
+
+
+.Form{
+  display: flex;
+  flex-direction: column;
+  &-title{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 3%;
+    color: #494F66;
+  }
+  &-Control{
+    padding: 1% 2%;
+    display: flex;
+    justify-content: start;
+    &-Group{
+        display: flex;
+        justify-content: center;
+        &-Message{
+          display: flex;
+          align-items: center;
+          &>p{
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 20px;
+          }
+        }
+      
+    }
+    &-input-lg{
+      width :288px;
+      height:56px;
+      background: #FFFFFF;
+      border: 1px solid #C5CBE0;
+      box-sizing: border-box;
+      border-radius: 4px;
+      
+    }
+    &-button-primary{
+      width: 192px;
+      height: 56px;
+      background: #EF3340;
+      border-radius: 8px;
+      font-family: Lato;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 16px;
+      color: #FFFFFF;
+      outline: none;
+      border: none;
+      &:hover{
+        cursor:pointer;
+      }
+    }
+    &-input-md{
+      width :191.3px;
+      height:56px;
+      background: #FFFFFF;
+      border: 1px solid #C5CBE0;
+      box-sizing: border-box;
+      border-bottom-right-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+    &-select{
+      width :96px;
+      height:56px;
+      background: #FFFFFF;
+      border: 1px solid #C5CBE0;
+      font-size: 16px;
+      color: #494F66;
+      text-align-last: center;
+      appearance: none;
+      background: url("./../../assets/img/chevrot.svg") no-repeat ; 
+      background-position: right 5px top 50%; 
+    }
+  }
+}
+
+

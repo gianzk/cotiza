@@ -1,0 +1,67 @@
+
+
+.Column{
+    display: flex;
+    flex-direction: column;
+    margin-top: 4%;
+    margin-left: 8%;
+}
+
+.QuotesInfo{
+    &-user{
+        display: flex;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        color: #A3ABCC;
+
+        &>p{
+            margin-left: 1%;
+        }
+    }
+    &-title{
+        &>h2{
+            font-family: Lato;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            line-height: 48px;
+            color:#EF3340;
+            margin-bottom: 1%;
+            &>span{
+                color: #494F66;
+            }
+        }
+        &>p{
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            color: #676F8F;
+            margin-top:0px;
+        }
+
+        
+    }
+}
+
+.Quotes{
+    display: flex;
+    &-product{
+        flex:1;
+        display: flex;
+        flex-direction: column;
+    }
+    &-Mont{
+        flex:1;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
