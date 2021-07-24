@@ -31,6 +31,9 @@
             color: #494F66;
             margin-top: 0px;
         }
+        &>*{
+            cursor: pointer;
+        }
     }
     &-avatar{
         display: flex;

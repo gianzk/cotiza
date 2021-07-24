@@ -7,23 +7,23 @@ import { getUser } from "./../../services/index";
 import { DataSesion } from "./../../context/DataSesion";
 
 const PlanPage = () => {
-  /* const [load, setLoad] = useState(false);
+  const [load, setLoad] = useState(false);
   const { sesion, setSesion } = useContext(DataSesion);
 
   useEffect(() => {
     if (!load) {
       getUser()
         .then((e) => {
-          setSesion(e.data);
+          const data = e.data;
+          setSesion({ ...sesion, data });
           setLoad(true);
         })
         .catch((e) => {
           console.log(e);
         });
-      console.log(sesion);
     }
   }, []);
-*/
+
   return (
     <>
       <Header></Header>

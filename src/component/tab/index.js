@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const TabProducts = () => {
   const [value, setValue] = useState(0);
   const [expanded, setExpanded] = useState(false);
+
   const classes = useStyles();
 
   const handleChange = (event, newValue) => {
@@ -37,7 +38,9 @@ const TabProducts = () => {
   const handleChangeAcordion = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-
+  const toggle = (paramet) => {
+    console.log(paramet.target);
+  };
   return (
     <div className="Tabs">
       <div className="Tabs-Title">
@@ -65,19 +68,10 @@ const TabProducts = () => {
             aria-controls="panel1bh-content"
             id="panel1bh-header"
           >
-            <Typography className={classes.heading}>
-              General settings
-            </Typography>
-            <Typography className={classes.secondaryHeading}>
-              I am an accordion
-            </Typography>
+            <Typography className={classes.heading}>Llanta robada</Typography>
+            <Typography className={classes.secondaryHeading}></Typography>
           </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Nulla facilisi. Phasellus sollicitudin nulla et quam mattis
-              feugiat. Aliquam eget maximus est, id dignissim quam.
-            </Typography>
-          </AccordionDetails>
+          <AccordionDetails></AccordionDetails>
         </Accordion>
         <Accordion
           expanded={expanded === "panel2"}
@@ -88,18 +82,13 @@ const TabProducts = () => {
             aria-controls="panel2bh-content"
             id="panel2bh-header"
           >
-            <Typography className={classes.heading}>Users</Typography>
-            <Typography className={classes.secondaryHeading}>
-              You are currently not an owner
+            <Typography className={classes.heading}>
+              {" "}
+              Choque y/o pasarte la luz roja
             </Typography>
+            <Typography className={classes.secondaryHeading}></Typography>
           </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Donec placerat, lectus sed mattis semper, neque lectus feugiat
-              lectus, varius pulvinar diam eros in elit. Pellentesque convallis
-              laoreet laoreet.
-            </Typography>
-          </AccordionDetails>
+          <AccordionDetails></AccordionDetails>
         </Accordion>
         <Accordion
           expanded={expanded === "panel3"}
@@ -111,18 +100,11 @@ const TabProducts = () => {
             id="panel3bh-header"
           >
             <Typography className={classes.heading}>
-              Advanced settings
+              Atropello en la via evitamiento
             </Typography>
-            <Typography className={classes.secondaryHeading}>
-              Filtering has been entirely disabled for whole web server
-            </Typography>
+            <Typography className={classes.secondaryHeading}></Typography>
           </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer
-              sit amet egestas eros, vitae egestas augue. Duis vel est augue.
-            </Typography>
-          </AccordionDetails>
+          <AccordionDetails></AccordionDetails>
         </Accordion>
       </div>
     </div>

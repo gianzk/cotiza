@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import iconBack from "./../../assets/img/icon_Back.svg";
 import Product from "./../product/index";
 import Mont from "./../mont/index";
 import "./style.scss";
 import TabProducts from "./../tab/index";
-
-const user = {
-  userName: "Juan",
-};
+import { useHistory } from "react-router-dom";
+import { DataSesion } from "./../../context/DataSesion";
 
 const Quotes = () => {
+  const { sesion } = useContext(DataSesion);
+  console.log(sesion);
+
+  const history = useHistory();
+
+  const back = () => {
+    history.push("/login");
+  };
+
   return (
     <div className="Column">
       <div className="QuotesInfo">
-        <div className="QuotesInfo-user">
+        <div onClick={back} className="QuotesInfo-user">
           <img src={iconBack} alt="icon" />
           <p>VOLVER</p>
         </div>
@@ -21,7 +28,7 @@ const Quotes = () => {
         <div className="QuotesInfo-title">
           <h2>
             <span>!Hola,</span>
-            {user.userName}
+            {sesion.data ? sesion.data.name : ""}
           </h2>
           <p>Conoce las coberturas para tu plan</p>
         </div>

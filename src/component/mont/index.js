@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Detail,
   DetailMont,
@@ -31,6 +31,7 @@ const data = {
 
 const Mont = () => {
   const history = useHistory();
+  const [monthly, setMonthly] = useState(60);
 
   const finishButton = () => {
     history.push("/gracias");
@@ -40,7 +41,7 @@ const Mont = () => {
     <Detail>
       <DetailMont>
         <h3>Monto</h3>
-        <p>$/{data.monto}</p>
+        <p>$/{monthly}</p>
         <span>mensuales</span>
       </DetailMont>
       <Separator />

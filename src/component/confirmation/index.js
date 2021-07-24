@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./style.scss";
 import { useHistory } from "react-router-dom";
+import { DataSesion } from "../../context/DataSesion";
 
 const Confirmation = () => {
+  const { sesion, setSesion } = useContext(DataSesion);
+
   const history = useHistory();
 
   const revalidButton = () => {
@@ -20,7 +23,7 @@ const Confirmation = () => {
           Enviaremos la confirmación de compra de tu Plan Vehícular Tracking a
           tu correo:
         </span>
-        <p>joel.sanchez@gmail.com</p>
+        <p>{sesion.data.email}</p>
       </div>
       <button onClick={revalidButton} className="Confirmation-Button">
         COMO USAR MI SEGURO{" "}

@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import Avatar from "./../../assets/img/avatar.svg";
 import "./style.scss";
 import RemoveOutlinedIcon from "@material-ui/icons/RemoveOutlined";
 import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
+import { DataSesion } from "../../context/DataSesion";
+
 const data = {
   shield: "Placa: C2U-114",
   model: "Wolkswagen 2019 Golf",
 };
 
 const Product = () => {
+  const { sesion, setSesion } = useContext(DataSesion);
+  const [policy, setPolicy] = useState(14500);
+
+  const addMont = () => {
+    setPolicy(policy + 100);
+  };
+
+  const remMont = () => {
+    setPolicy(policy - 100);
+  };
+
   return (
     <div className="Colum">
       <div className="Detail">
         <div className="Detail-information">
-          <h3>{data.shield}</h3>
+          <h3>Placa :{sesion.form ? sesion.form.shield : ""}</h3>
           <p>{data.model}</p>
         </div>
         <div className="Detail-avatar">
@@ -29,9 +42,9 @@ const Product = () => {
           </div>
         </div>
         <div className="ChangeMont-Detail">
-          <RemoveOutlinedIcon></RemoveOutlinedIcon>
-          <span>$12313213</span>
-          <AddOutlinedIcon></AddOutlinedIcon>
+          <RemoveOutlinedIcon onClick={remMont}></RemoveOutlinedIcon>
+          <span>${policy}</span>
+          <AddOutlinedIcon onClick={addMont}></AddOutlinedIcon>
         </div>
       </div>
       <div className="Separator"></div>

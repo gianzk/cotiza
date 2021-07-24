@@ -5,6 +5,7 @@ import phone from "./../../assets/img/ic_phone.svg";
 import { withStyles } from "@material-ui/core/styles";
 import { DataSesion } from "./../../context/DataSesion";
 import { useHistory } from "react-router-dom";
+import { useForm } from "./../../hooks/formHook";
 
 import "./style.scss";
 
@@ -19,10 +20,12 @@ const GreenCheckbox = withStyles({
 
 const FormInit = () => {
   const { sesion, setSesion } = useContext(DataSesion);
+  const { form, handleChangeForm } = useForm({});
 
   const [state, setState] = useState({
     checkedG: false,
   });
+  const [isValid, setIsValid] = useState(true);
 
   const history = useHistory();
 
@@ -31,7 +34,17 @@ const FormInit = () => {
   };
 
   const revalidButton = () => {
-    history.push("/arma-tu-plan");
+    if (
+      form.hasOwnProperty("document") &&
+      form.hasOwnProperty("celphone") &&
+      form.hasOwnProperty("shield") &&
+      state.checkedG
+    ) {
+      setSesion({ ...sesion, form });
+      history.push("/arma-tu-plan");
+    } else {
+      setIsValid(false);
+    }
   };
 
   return (
@@ -52,20 +65,37 @@ const FormInit = () => {
               <option value="DNI">DNI</option>
             </select>
             <input
-              className="Form-Control-input-md"
+              className={
+                isValid
+                  ? "Form-Control-input-md"
+                  : "Form-Control-input-md error"
+              }
               type="text"
               placeholder="Nro de Documento"
+              name="document"
+              onChange={handleChangeForm}
             ></input>
           </div>
         </div>
         <div className="Form-Control">
           <input
-            className="Form-Control-input-lg"
+            className={
+              isValid ? "Form-Control-input-lg" : "Form-Control-input-md error"
+            }
             placeholder="Celular"
+            name="celphone"
+            onChange={handleChangeForm}
           ></input>
         </div>
         <div className="Form-Control">
-          <input className="Form-Control-input-lg" placeholder="Placa"></input>
+          <input
+            className={
+              isValid ? "Form-Control-input-lg" : "Form-Control-input-md error"
+            }
+            placeholder="Placa"
+            name="shield"
+            onChange={handleChangeForm}
+          ></input>
         </div>
         <div className="Form-Control">
           <div className="Form-Control-Group-Message">
