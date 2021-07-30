@@ -10,6 +10,10 @@ import {
 import check from "./../../assets/img/ic_check.svg";
 import { useHistory } from "react-router-dom";
 import { DataSesion } from "../../context/DataSesion";
+import {
+  SentimentSatisfied,
+  SentimentSatisfiedOutlined,
+} from "@material-ui/icons";
 
 const include = [
   {
@@ -29,31 +33,30 @@ const include = [
 const Mont = () => {
   const history = useHistory();
 
-  const { sesion, setSesion } = useContext(DataSesion);
-  const [charge, setcharge] = useState(0);
+  const { sesion, setSesion, info, setInfo } = useContext(DataSesion);
 
   const finishButton = () => {
     history.push("/gracias");
   };
   useEffect(() => {
     let charge = 20;
-    if (sesion.productTire) {
+    if (info.productTire) {
       charge += 15;
     }
-    if (sesion.productShock) {
+    if (info.productShock) {
       charge += 20;
     }
-    if (sesion.productAccident) {
+    if (info.productAccident) {
       charge += 50;
     }
-    setSesion({ ...sesion, mont: charge });
-  }, []);
+    setInfo({ ...info, mont: charge });
+  }, [info.productTire, info.productShock, info.productAccident]);
 
   return (
     <Detail>
       <DetailMont>
         <h3>Monto</h3>
-        <p>$/{sesion.mont}</p>
+        <p>$/{info.mont}</p>
         <span>mensuales</span>
       </DetailMont>
       <Separator />

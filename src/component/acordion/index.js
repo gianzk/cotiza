@@ -7,32 +7,36 @@ import tire from "./../../assets/img/tire.svg";
 import shock from "./../../assets/img/shock.svg";
 import accident from "./../../assets/img/accident.svg";
 import { DataSesion } from "../../context/DataSesion";
+import { statusEvaluate } from "../../helpers";
 import "./style.scss";
+import { SystemUpdateOutlined } from "@material-ui/icons";
 
-const Accordion = ({ id, img, title, data, productStatus }) => {
-  const { sesion, setSesion } = useContext(DataSesion);
+const Accordion = ({ id, title, description }) => {
+  const { sesion, info, setInfo } = useContext(DataSesion);
   const [expand, setExpand] = useState(true);
-  const [chargue, setChargue] = useState(0);
-
+  const [status, setStatus] = useState(statusEvaluate(id, info));
+  const [loading, setLoading] = useState(false);
   const switchValue = () => {
     setExpand(!expand);
   };
 
-  const changeStatus = async () => {
+  const changeStatus = () => {
     switch (id) {
       case "tire":
-        await setSesion({ ...sesion, productTire: !sesion.productTire });
+        setInfo({ ...info, productTire: !sesion.productTire });
+        setStatus(!info.productTire);
 
         break;
       case "shock":
-        await setSesion({ ...sesion, productShock: !sesion.productShock });
-
+        setInfo({ ...info, productShock: !info.productShock });
+        setStatus(!info.productShock);
         break;
       case "accident":
-        await setSesion({
-          ...sesion,
-          productAccident: !sesion.productAccident,
+        setInfo({
+          ...info,
+          productAccident: !info.productAccident,
         });
+        setStatus(!info.productAccident);
 
         break;
       default:
@@ -52,21 +56,6 @@ const Accordion = ({ id, img, title, data, productStatus }) => {
         return <img src={tire} alt="logo" />;
     }
   };
-
-  const statusEvaluate = (id) => {
-    switch (id) {
-      case "tire":
-        return sesion.productTire;
-      case "shock":
-        return sesion.productShock;
-      case "accident":
-        return sesion.productAccident;
-      default:
-        return false;
-    }
-  };
-
-  const status = statusEvaluate(id);
 
   return (
     <div className="Accordion">

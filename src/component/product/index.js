@@ -15,7 +15,7 @@ const MontsPolicy = {
 };
 
 const Product = () => {
-  const { sesion, setSesion } = useContext(DataSesion);
+  const { sesion, info, setInfo } = useContext(DataSesion);
   const [policy, setPolicy] = useState(14500);
 
   const addMont = () => {
@@ -31,9 +31,11 @@ const Product = () => {
   };
   useEffect(() => {
     if (policy > 16000) {
-      setSesion({ ...sesion, productShock: false });
+      setInfo({ ...info, productShock: false });
+      console.log(info);
     } else {
-      setSesion({ ...sesion, productShock: true });
+      setInfo({ ...info, productShock: true });
+      console.log(info);
     }
   }, [policy]);
 

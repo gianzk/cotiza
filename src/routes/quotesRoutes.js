@@ -8,10 +8,6 @@ import { DataSesion } from "./../context/DataSesion";
 
 const AppRouter = () => {
   const [sesion, setSesion] = useState({
-    mont: 20,
-    productTire: false,
-    productShock: true,
-    productAccident: false,
     listProducts: [
       { id: "tire", title: "Llanta robada" },
       { id: "shock", title: "Choque y/o pasarte la luz roja" },
@@ -21,9 +17,15 @@ const AppRouter = () => {
       },
     ],
   });
+  const [info, setInfo] = useState({
+    mont: 20,
+    productTire: false,
+    productShock: true,
+    productAccident: false,
+  });
 
   return (
-    <DataSesion.Provider value={{ sesion, setSesion }}>
+    <DataSesion.Provider value={{ sesion, setSesion, info, setInfo }}>
       <Switch>
         <Route exact path={`/login`} component={HomePage} />
         <Route exact path={`/arma-tu-plan`} component={PlanPage} />

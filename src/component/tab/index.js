@@ -13,10 +13,6 @@ const TabProducts = () => {
     setValue(newValue);
   };
 
-  const toggle = (paramet) => {
-    console.log(paramet.target);
-  };
-
   return (
     <div className="Tabs">
       <div className="Tabs-Title">
