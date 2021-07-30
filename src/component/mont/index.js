@@ -48,6 +48,7 @@ const Mont = () => {
     }
     setSesion({ ...sesion, mont: charge });
   }, []);
+
   return (
     <Detail>
       <DetailMont>
