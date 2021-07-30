@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   Detail,
   DetailMont,
@@ -9,6 +9,7 @@ import {
 } from "./style";
 import check from "./../../assets/img/ic_check.svg";
 import { useHistory } from "react-router-dom";
+import { DataSesion } from "../../context/DataSesion";
 
 const include = [
   {
@@ -25,23 +26,33 @@ const include = [
   },
 ];
 
-const data = {
-  monto: 35,
-};
-
 const Mont = () => {
   const history = useHistory();
-  const [monthly, setMonthly] = useState(60);
+
+  const { sesion, setSesion } = useContext(DataSesion);
+  const [charge, setcharge] = useState(0);
 
   const finishButton = () => {
     history.push("/gracias");
   };
-
+  useEffect(() => {
+    let charge = 20;
+    if (sesion.productTire) {
+      charge += 15;
+    }
+    if (sesion.productShock) {
+      charge += 20;
+    }
+    if (sesion.productAccident) {
+      charge += 50;
+    }
+    setSesion({ ...sesion, mont: charge });
+  }, []);
   return (
     <Detail>
       <DetailMont>
         <h3>Monto</h3>
-        <p>$/{monthly}</p>
+        <p>$/{sesion.mont}</p>
         <span>mensuales</span>
       </DetailMont>
       <Separator />

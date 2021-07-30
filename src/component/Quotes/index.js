@@ -9,7 +9,6 @@ import { DataSesion } from "./../../context/DataSesion";
 
 const Quotes = () => {
   const { sesion } = useContext(DataSesion);
-  console.log(sesion);
 
   const history = useHistory();
 

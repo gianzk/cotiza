@@ -13,8 +13,7 @@ export const Background = styled.div`
 export const Logo = styled.img`
   width: 99px;
   height: 16px;
-  padding: 1% 2%;
-  margin-left: 5%;
+  margin-left: 15%;
   margin-top: 3%;
   margin-bottom: 10%;
 `;

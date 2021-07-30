@@ -1,0 +1,28 @@
+.Accordion{
+    display: flex;
+    flex-direction: column;
+    font-family: Lato;
+    &-title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 28px;
+        color: #494F66;
+        &-info{
+            display: flex;
+        }
+    }
+    &-Group{
+        &-Button{
+            display: flex;
+            align-items: center;
+            color:#6F7DFF;
+        }
+        
+
+    }
+}

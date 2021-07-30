@@ -6,6 +6,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { DataSesion } from "./../../context/DataSesion";
 import { useHistory } from "react-router-dom";
 import { useForm } from "./../../hooks/formHook";
+import { alertMessage, verifyField } from "./../../helpers/index";
 
 import "./style.scss";
 
@@ -22,10 +23,12 @@ const FormInit = () => {
   const { sesion, setSesion } = useContext(DataSesion);
   const { form, handleChangeForm } = useForm({});
 
+  const [isValidDni, setIsValidDni] = useState(false);
+  const [isValidCelphone, setIsValidCelphone] = useState(false);
+  const [isValidShield, setIsValidShield] = useState(false);
   const [state, setState] = useState({
     checkedG: false,
   });
-  const [isValid, setIsValid] = useState(true);
 
   const history = useHistory();
 
@@ -36,14 +39,31 @@ const FormInit = () => {
   const revalidButton = () => {
     if (
       form.hasOwnProperty("document") &&
+      verifyField(form.document) &&
       form.hasOwnProperty("celphone") &&
+      verifyField(form.celphone) &&
       form.hasOwnProperty("shield") &&
+      verifyField(form.document) &&
       state.checkedG
     ) {
       setSesion({ ...sesion, form });
       history.push("/arma-tu-plan");
     } else {
-      setIsValid(false);
+      form.hasOwnProperty("document") && verifyField(form.document)
+        ? setIsValidDni(false)
+        : setIsValidDni(true);
+
+      form.hasOwnProperty("celphone") && verifyField(form.celphone)
+        ? setIsValidCelphone(false)
+        : setIsValidCelphone(true);
+
+      form.hasOwnProperty("shield") && verifyField(form.document)
+        ? setIsValidShield(false)
+        : setIsValidShield(true);
+
+      state.checkedG
+        ? setState({ checkedG: true })
+        : alertMessage("Debes aceptar los terminos y condiciones");
     }
   };
 
@@ -66,9 +86,9 @@ const FormInit = () => {
             </select>
             <input
               className={
-                isValid
-                  ? "Form-Control-input-md"
-                  : "Form-Control-input-md error"
+                isValidDni
+                  ? "Form-Control-input-md error"
+                  : "Form-Control-input-md"
               }
               type="text"
               placeholder="Nro de Documento"
@@ -80,7 +100,9 @@ const FormInit = () => {
         <div className="Form-Control">
           <input
             className={
-              isValid ? "Form-Control-input-lg" : "Form-Control-input-md error"
+              isValidCelphone
+                ? "Form-Control-input-md error"
+                : "Form-Control-input-md"
             }
             placeholder="Celular"
             name="celphone"
@@ -90,7 +112,9 @@ const FormInit = () => {
         <div className="Form-Control">
           <input
             className={
-              isValid ? "Form-Control-input-lg" : "Form-Control-input-md error"
+              isValidShield
+                ? "Form-Control-input-md error"
+                : "Form-Control-input-md"
             }
             placeholder="Placa"
             name="shield"

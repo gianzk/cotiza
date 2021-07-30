@@ -8,7 +8,18 @@ import { DataSesion } from "./../context/DataSesion";
 
 const AppRouter = () => {
   const [sesion, setSesion] = useState({
-    name: "Gianmarco",
+    mont: 20,
+    productTire: false,
+    productShock: true,
+    productAccident: false,
+    listProducts: [
+      { id: "tire", title: "Llanta robada" },
+      { id: "shock", title: "Choque y/o pasarte la luz roja" },
+      {
+        id: "accident",
+        title: "Atropello en la vía Evitamiento",
+      },
+    ],
   });
 
   return (
