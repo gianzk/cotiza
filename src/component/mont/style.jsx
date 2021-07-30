@@ -4,6 +4,11 @@ export const Detail = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10%;
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4%;
+  }
 `;
 
 export const DetailMont = styled.div`
@@ -52,6 +57,9 @@ export const ListItems = styled.div`
     line-height: 24px;
     letter-spacing: 0.2px;
     color: #494f66;
+  }
+  @media only screen and (max-width: 768px) {
+    display: none;
   }
 `;
 
