@@ -23,13 +23,13 @@
 -Los ui componentes fueron estructurados en base a la metodologia BEM  Para el manejo de la data al ser un solo flujo y no pasar props componente por componentes se uso los hooks context del API de react para tener un acceso global de la informacion.
 
 ## Screemshots
-<br />
+
 ##DIAGRAMA DE SOLUCION
 ![Selection_056](https://user-images.githubusercontent.com/47899960/127745203-27ae858a-b9e0-46af-afbc-8876f58e7c3b.png)
-<br />
+
 ##ESTRUCTURA DE ARCHIVOS
 ![Selection_050](https://user-images.githubusercontent.com/47899960/127743947-a4032227-346d-4909-8ea6-e4516ce2d68c.png)
-<br />
+
 ##VISTAS
 ![Selection_051](https://user-images.githubusercontent.com/47899960/127743997-bb761c08-4cef-422e-8dd2-5461a4f601a2.png)
 ![Selection_053](https://user-images.githubusercontent.com/47899960/127744002-b22f5c5d-9acb-438f-9320-c301b21233e6.png)
