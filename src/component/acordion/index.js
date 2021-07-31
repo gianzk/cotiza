@@ -9,7 +9,6 @@ import accident from "./../../assets/img/accident.svg";
 import { DataSesion } from "../../context/DataSesion";
 import { statusEvaluate } from "../../helpers";
 import "./style.scss";
-import { SystemUpdateOutlined } from "@material-ui/icons";
 
 const Accordion = ({ id, title, description }) => {
   const { sesion, info, setInfo } = useContext(DataSesion);
@@ -83,7 +82,9 @@ const Accordion = ({ id, title, description }) => {
           </div>
         )}
       </div>
-      <div className="Accordion-Content"></div>
+      <div className={expand ? "Accordion-Content" : "Accordion-Content-Hide"}>
+        <p>{description}</p>
+      </div>
     </div>
   );
 };

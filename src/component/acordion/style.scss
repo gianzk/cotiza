@@ -22,7 +22,16 @@
             align-items: center;
             color:#6F7DFF;
         }
-        
-
+    }
+    &-Content{
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        color: #676F8F;
+        &-Hide{
+            display: none;
+        }
     }
 }

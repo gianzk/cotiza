@@ -36,8 +36,8 @@ const TabProducts = () => {
             id={e.id}
             img={e.id}
             title={e.title}
-            productStatus={e.id}
             key={e.id}
+            description={e.description}
           ></Accordion>
         ))}
       </div>
